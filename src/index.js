@@ -8,7 +8,7 @@ if (require('electron-squirrel-startup')) {
 }
 
 const log = require('electron-log');
-const { updateElectronApp } = require('update-electron-app')
+const { updateElectronApp, UpdateSourceType } = require('update-electron-app')
 updateElectronApp({ 
   logger: log,
   updateSource: {
