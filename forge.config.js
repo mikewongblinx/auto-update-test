@@ -3,15 +3,23 @@ module.exports = {
     asar: true,
   },
   publishers: [
+    // {
+    //   name: '@electron-forge/publisher-github',
+    //   config: {
+    //     repository: {
+    //       owner: 'mikewongblinx',
+    //       name: 'auto-update-test'
+    //     },
+    //     prerelease: true
+    //   }
+    // },
     {
-      name: '@electron-forge/publisher-github',
+      name: "@electron-forge/publisher-s3",
       config: {
-        repository: {
-          owner: 'mikewongblinx',
-          name: 'auto-update-test'
-        },
-        prerelease: true
-      }
+        bucket: 'auto-update-test',
+        region: "eu-west-2",
+        public: true,
+      },
     }
   ],
   rebuildConfig: {},
