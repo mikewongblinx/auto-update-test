@@ -6,8 +6,10 @@ let curWindow;
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
+
+const log = require('electron-log');
 const { updateElectronApp } = require('update-electron-app')
-updateElectronApp()
+updateElectronApp({ logger: log });
 
 // /*New Update Available*/
 // autoUpdater.on("update-available", (info) => {
