@@ -16,7 +16,7 @@ module.exports = {
     {
       name: "@electron-forge/publisher-s3",
       config: {
-        bucket: 'auto-update-test',
+        bucket: 'el-auto-update-test',
         region: "eu-west-2",
         public: true,
       },

@@ -9,7 +9,13 @@ if (require('electron-squirrel-startup')) {
 
 const log = require('electron-log');
 const { updateElectronApp } = require('update-electron-app')
-updateElectronApp({ logger: log });
+updateElectronApp({ 
+  logger: log,
+  updateSource: {
+    type: UpdateSourceType.StaticStorage,
+    baseUrl: `https://el-auto-update-test.s3.eu-west-2.amazonaws.com/auto-update-test/${process.platform}/${process.arch}`
+  }
+ });
 
 // /*New Update Available*/
 // autoUpdater.on("update-available", (info) => {
