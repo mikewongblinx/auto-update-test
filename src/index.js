@@ -1,10 +1,33 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, autoUpdater } = require('electron');
 const path = require('path');
 
+let curWindow;
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
+const { updateElectronApp } = require('update-electron-app')
+updateElectronApp()
+
+// /*New Update Available*/
+// autoUpdater.on("update-available", (info) => {
+//   curWindow.showMessage(`Update available. Current version ${app.getVersion()}`);
+//   let pth = autoUpdater.downloadUpdate();
+//   curWindow.showMessage(pth);
+// });
+
+// autoUpdater.on("update-not-available", (info) => {
+//   curWindow.showMessage(`No update available. Current version ${app.getVersion()}`);
+// });
+
+// /*Download Completion Message*/
+// autoUpdater.on("update-downloaded", (info) => {
+//   curWindow.showMessage(`Update downloaded. Current version ${app.getVersion()}`);
+// });
+
+// autoUpdater.on("error", (info) => {
+//   curWindow.showMessage(info);
+// });
 
 const createWindow = () => {
   // Create the browser window.
@@ -15,6 +38,7 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js'),
     },
   });
+  curWindow = mainWindow;
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));

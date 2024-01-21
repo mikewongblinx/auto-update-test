@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
+  "repository": {
+    "url": "https://github.com/mikewongblinx/auto-update-test"
+  },
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -18,7 +21,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "update-electron-app": "^3.0.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.2.0",
